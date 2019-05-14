@@ -1,15 +1,12 @@
 class Pokemon
-  @@all = []
+  attr_accessor :name, :type, :db, :id, :hp
   
-  def self.initialize(id, name, type, db)
-    @id = id
-    @name = name
-    @type = type
-    @@all << self
+  def initialize(keywords)
+   
   end
   
-  def self.all
-    @@all 
+  def self.save(name, type, db)
+    db.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)", name, type)
   end
     
 end
