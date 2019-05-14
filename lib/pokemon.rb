@@ -17,4 +17,10 @@ class Pokemon
     new_pokemon.type = pokemon[0][2]
     new_pokemon.hp = pokemon[0][3]
     return new_pokemon
+  end
+  
+  def alter_hp(num, db)
+    db.execute("UPDATE pokemon SET hp = ?", [num], [self.id])
+    self.hp = num
+  end
 end
